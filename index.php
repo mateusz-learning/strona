@@ -40,6 +40,11 @@
     </div>
 
     <?php
+        session_start();
+        echo $_SESSION['user'];
+        echo "<br>";
+        echo $_SESSION['email'];
+
         if (!isset($_GET['page'])) {
             header('Location: index.php?page=logowanie');
         }
@@ -61,16 +66,7 @@
         else if ($_GET['page'] == 'stworz-fiszki') {
             require('stworz-fiszki.php');
         }
-
-        session_start();
-
-        $user = "Mateusz";
-
-        $_SESSION['user'] = "Wow";
-
-        echo var_dump($_SESSION);
     ?>
-
 	<script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
