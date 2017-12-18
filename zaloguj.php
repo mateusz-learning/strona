@@ -17,6 +17,7 @@ $result = $mysqli->query("SELECT * FROM uzytkownicy
 	WHERE username = '". $login . "' AND password = '" . $password . "'");
 
 if ($result->num_rows == 1) {
+	echo "ok";
 	$row = $result->fetch_array(MYSQLI_ASSOC);
 
 	session_start();
@@ -24,7 +25,7 @@ if ($result->num_rows == 1) {
 	$_SESSION['email'] = $row['email'];
 }
 else {
-
+	echo "nope";
 }
 
-//$mysqli->close();
+$mysqli->close();

@@ -6,6 +6,13 @@
 	border-radius: 0px;
 }
 
+.juz-istnieje {
+	font-size: 22px;
+	font-weight: bold;
+	text-align: center;
+	color: #e60000;
+}
+
 .blad_polaczenia_baza_danych {
 	text-align: center;
 	font-size: 20px;

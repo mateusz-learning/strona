@@ -40,11 +40,6 @@
     </div>
 
     <?php
-        session_start();
-        echo $_SESSION['user'];
-        echo "<br>";
-        echo $_SESSION['email'];
-
         if (!isset($_GET['page'])) {
             header('Location: index.php?page=logowanie');
         }
