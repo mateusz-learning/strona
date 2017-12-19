@@ -29,11 +29,20 @@
                 else if (isset($_GET['login_za_krotki'])) {
                     echo "<p>Podany login jest za krótki.</p>";
                 }
+                else if (isset($_GET['login_za_dlugi'])) {
+                    echo "<p>Podany login jest za długi</p>";
+                }
                 else if (isset($_GET['login_niedozwolone_znaki'])) {
                     echo "<p>Login może zawierać tylko litery i cyfry.</p>";
                 }
                 else if (isset($_GET['niepoprawny_email'])) {
                     echo "<p>Proszę podać poprawny email.</p>";
+                }
+                else if (isset($_GET['email_blad'])) {
+                    echo "<p>Nie udało się wysłać wiadomości na podany adres email.</p>";
+                }
+                else if (isset($_GET['blad_polaczenia_z_baza_danych'])) {
+                    echo "<p>Błąd połączenia z bazą danych</p>";
                 }
             ?>
         </div>

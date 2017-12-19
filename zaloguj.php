@@ -25,7 +25,7 @@ if ($result->num_rows == 1) {
 	$_SESSION['email'] = $row['email'];
 }
 else {
-	echo "nope";
+	echo "Tu trzeba będzie dalej coś zrobić";
 }
 
 $mysqli->close();

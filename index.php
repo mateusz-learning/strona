@@ -61,6 +61,9 @@
         else if ($_GET['page'] == 'stworz-fiszki') {
             require('stworz-fiszki.php');
         }
+        else if ($_GET['page'] == 'rejestracja-potwierdzenie') {
+            require ('rejestracja-utworz-haslo.php');
+        }
     ?>
 	<script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
