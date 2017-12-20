@@ -18,7 +18,7 @@
                 </div>
             </form>
         </div>
-        <div class="modal-footer juz-istnieje">
+        <div class="modal-footer informacja-dla-uzytkownika">
             <?php
                 if (isset($_GET['login_istnieje'])) {
                     echo "<p>Podany login już istnieje.</p>";

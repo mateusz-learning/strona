@@ -53,7 +53,7 @@
             require('rejestracja.php');
         }
         else if ($_GET['page'] == 'przypomnij-haslo') {
-            require('przypomnij-haslo.php');
+            require('przypominanie-hasla.php');
         }
         else if ($_GET['page'] == 'nauka') {
             require('nauka.php');
@@ -62,7 +62,16 @@
             require('stworz-fiszki.php');
         }
         else if ($_GET['page'] == 'rejestracja-potwierdzenie') {
-            require ('rejestracja-utworz-haslo.php');
+            require ('rejestracja-tworzenie-hasla.php');
+        }
+        else if ($_GET['page'] == 'rejestracja_wyslano_email') {
+            require('rejestracja-wyslano-email.php');
+        }
+        else if ($_GET['page'] == 'rejestracja_nie_udala_sie') {
+            require('rejestracja-nie-udala-sie.php');
+        }
+        else if ($_GET['page'] == 'rejestracja_udala_sie') {
+            require('rejestracja-udala-sie.php');
         }
     ?>
 	<script src="js/jquery-3.2.1.min.js"></script>

@@ -30,15 +30,15 @@ else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $result = $mysqli->query("SELECT * FROM uzytkownicy 
 	WHERE username = '". $login . "' OR email = '" . $email . "'");
 
-$result_unverified = $mysqli->query("SELECT * FROM uzytkownicy_nie_potwierdzeni 
+$result_unverified = $mysqli->query("SELECT * FROM uzytkownicy_niepotwierdzeni 
 	WHERE username = '". $login . "' OR email = '" . $email . "'");
 
 if ($result->num_rows == 0 && $result_unverified->num_rows == 0) {
-	require("rejestracja-email.php");
+	require("zarejestruj-email.php");
 }
 else {
 	$search_login = $mysqli->query("SELECT * FROM uzytkownicy WHERE username = '". $login . "'");
-	$search_login_unverified = $mysqli->query("SELECT * FROM uzytkownicy_nie_potwierdzeni WHERE username = '". $login . "'");
+	$search_login_unverified = $mysqli->query("SELECT * FROM uzytkownicy_niepotwierdzeni WHERE username = '". $login . "'");
 
 	if ($search_login->num_rows != 0 || $search_login_unverified->num_rows != 0) {
 		header("Location: index.php?page=rejestracja&login_istnieje");

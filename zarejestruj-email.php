@@ -10,10 +10,10 @@ $messages= "Witaj " . $_POST['login'] . ".\n\n" .
 			"&login=" . $login ."&kod=" . $verification_code;
  
 if (mail($to, $subject, $messages)) {
-	$mysqli->query("INSERT INTO `uzytkownicy_nie_potwierdzeni` (`ID`, `username`, `email`, `verification_code`)
+	$mysqli->query("INSERT INTO `uzytkownicy_niepotwierdzeni` (`ID`, `username`, `email`, `verification_code`)
 		VALUES (NULL, '" . $login . "', '" . $email . "', '" . $verification_code . "');");
 
-	header("Location: index.php?page=rejestracja_utworz_haslo");
+	header("Location: index.php?page=rejestracja_wyslano_email");
 }
 else {
 	header("Location: index.php?page=rejestracja&email_blad");
