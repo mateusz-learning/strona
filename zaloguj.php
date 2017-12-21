@@ -17,15 +17,16 @@ $result = $mysqli->query("SELECT * FROM uzytkownicy
 	WHERE username = '". $login . "' AND password = '" . $password . "'");
 
 if ($result->num_rows == 1) {
-	echo "ok";
 	$row = $result->fetch_array(MYSQLI_ASSOC);
 
 	session_start();
 	$_SESSION['user'] = $row['username'];
 	$_SESSION['email'] = $row['email'];
+
+	header('Location: index.php?page=nauka');
 }
 else {
-	echo "Tu trzeba będzie dalej coś zrobić";
+	header('Location: index.php?page=logowanie&zle_dane');
 }
 
 $mysqli->close();

@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -28,12 +34,28 @@
                     <a class="navbar-brand" href="index.php?page=strona-glowna">Strona główna</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="index.php?page=nauka">Nauka</a></li>
-                    <li><a href="index.php?page=stworz-fiszki">Stwórz fiszki</a></li>
+                    <?php
+                        if (isset($_SESSION['user'])) {
+                            echo '
+                                <li><a href="index.php?page=nauka">Nauka</a></li>
+                                <li><a href="index.php?page=stworz-fiszki">Stwórz fiszki</a></li>';
+                        }
+                    ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="profil.html"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Wyloguj się</a></li>
+                    <?php
+                        if (isset($_SESSION['user'])) {
+                            echo '
+                                <li><a href="?page=profil"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
+                                <li><a href="?page=wyloguj"><span class="glyphicon glyphicon-log-in"></span> Wyloguj się</a></li>
+                            ';
+                        }
+                        else {
+                            echo '
+                              <li><a href="?page=logowanie"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>  
+                            ';
+                        }
+                    ?>
                 </ul>
             </div>
         </nav>
@@ -49,6 +71,12 @@
         else if ($_GET['page'] == 'logowanie') {
             require('logowanie.php');
         }
+        else if ($_GET['page'] == 'wylogowano-uzytkownika') {
+            require('wylogowano-uzytkownika.php');
+        }
+        else if ($_GET['page'] == 'wyloguj') {
+            require('wyloguj.php');
+        }
         else if ($_GET['page'] == 'rejestracja') {
             require('rejestracja.php');
         }
@@ -61,11 +89,17 @@
         else if ($_GET['page'] == 'stworz-fiszki') {
             require('stworz-fiszki.php');
         }
+        else if ($_GET['page'] == 'profil') {
+            require('profil.php');
+        }
         else if ($_GET['page'] == 'rejestracja-potwierdzenie') {
             require ('rejestracja-tworzenie-hasla.php');
         }
         else if ($_GET['page'] == 'rejestracja_wyslano_email') {
             require('rejestracja-wyslano-email.php');
+        }
+        else if ($_GET['page'] == 'wyslano_email_przypomnienie') {
+            require('email-przypomnienie-hasla.php');
         }
         else if ($_GET['page'] == 'rejestracja_nie_udala_sie') {
             require('rejestracja-nie-udala-sie.php');

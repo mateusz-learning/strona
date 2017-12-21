@@ -18,7 +18,12 @@
                 </div>
             </form>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer informacja-dla-uzytkownika">
+            <?php
+                if (isset($_GET['zle_dane'])) {
+                    echo "<p>Nie udało się zalogować.</p>";
+                }
+            ?>
         </div>
     </div>
 </div>

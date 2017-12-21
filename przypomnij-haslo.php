@@ -1,0 +1,36 @@
+<?php
+
+$email = $_POST['email'];
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header("Location: index.php?page=przypomnij-haslo&niepoprawny_email");
+	die();
+}
+
+$mysqli = new mysqli("127.0.0.1", "mateusz", "mateusz", "strona_internetowa");
+
+if ($mysqli->connect_errno) {
+	header("Location: index.php?page=rejestracja&blad_polaczenia_z_baza_danych");
+	die();
+}
+
+$result = $mysqli->query("SELECT * FROM uzytkownicy WHERE email = '" . $email . "'");
+$hasło = $result->fetch_array(MYSQLI_ASSOC)["password"];
+
+if ($result->num_rows == 0) {
+	header("Location: index.php?page=przypomnij-haslo&email_nie_znaleziono");
+	die();
+}
+else {
+	$to = $_POST['email'];
+	$subject = "Przypominanie hasła";
+	$messages= "Witaj " . $_POST['login'] . ".\n\n" .
+			"Twoje hasło: " . $hasło;
+}
+
+if (mail($to, $subject, $messages)) {
+	header("Location: index.php?page=wyslano_email_przypomnienie");
+}
+else {
+	header("Location: index.php?page=rejestracja&email_blad");
+}
