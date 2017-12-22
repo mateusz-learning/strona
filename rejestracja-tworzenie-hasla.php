@@ -17,10 +17,10 @@
         </div>
         <div class="modal-footer informacja-dla-uzytkownika">
             <?php
-                if (isset($_GET['haslo_za_krotkie'])) {
+                if (isset($_GET['haslo-za-krotkie'])) {
                     echo "<p>Minimalna dozwolona długość hasła to 7 znaków.</p>";
                 }
-                else if (isset($_GET['haslo_za_dlugie'])) {
+                else if (isset($_GET['haslo-za-dlugie'])) {
                     echo "<p>Maksymalna dozwolona długość hasła to 255 znaków.</p>";
                 }
             ?>

@@ -13,10 +13,10 @@ if (mail($to, $subject, $messages)) {
 	$mysqli->query("INSERT INTO `uzytkownicy_niepotwierdzeni` (`ID`, `username`, `email`, `verification_code`)
 		VALUES (NULL, '" . $login . "', '" . $email . "', '" . $verification_code . "');");
 
-	header("Location: index.php?page=rejestracja_wyslano_email");
+	header("Location: index.php?page=rejestracja-wyslano-email");
 }
 else {
-	header("Location: index.php?page=rejestracja&email_blad");
+	header("Location: index.php?page=rejestracja&email-blad");
 }
 
 ?>

@@ -3,7 +3,7 @@
 $mysqli = new mysqli("127.0.0.1", "mateusz", "mateusz", "strona_internetowa");
 
 if ($mysqli->connect_errno) {
-	header("Location: index.php?page=rejestracja&blad_polaczenia_z_baza_danych");
+	header("Location: index.php?page=rejestracja&blad-polaczenia-z-baza-danych");
 	die();
 }
 
@@ -18,11 +18,11 @@ if ($result->num_rows == 1) {
 	$email = $result->fetch_array(MYSQLI_ASSOC)["email"];
 
 	if (strlen($haslo) < 7) {
-		header("Location: index.php?page=rejestracja-potwierdzenie&login=" . $login . "&kod=" . $kod . "&haslo_za_krotkie");
+		header("Location: index.php?page=rejestracja-potwierdzenie&login=" . $login . "&kod=" . $kod . "&haslo-za-krotkie");
 		die();
 	}
 	else if (strlen($haslo) > 255) {
-		header("Location: index.php?page=rejestracja-potwierdzenie&login=" . $login . "&kod=" . $kod . "&haslo_za_dlugie");
+		header("Location: index.php?page=rejestracja-potwierdzenie&login=" . $login . "&kod=" . $kod . "&haslo-za-dlugie");
 		die();
 	}
 
@@ -31,9 +31,9 @@ if ($result->num_rows == 1) {
 		VALUES ('" . $login . "', '" . $haslo . "', '" . $email . "');");
 	$mysqli->query("DELETE FROM `uzytkownicy_niepotwierdzeni` WHERE `username` = '". $login . "'");
 
-	header("Location: index.php?page=rejestracja_udala_sie");
+	header("Location: index.php?page=rejestracja-udala-sie");
 }
 else {
-	header("Location: index.php?page=rejestracja_nie_udala_sie");
+	header("Location: index.php?page=rejestracja-nie-udala-sie");
 	die();
 }

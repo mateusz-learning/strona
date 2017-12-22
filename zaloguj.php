@@ -4,7 +4,7 @@ $mysqli = new mysqli("127.0.0.1", "mateusz", "mateusz", "strona_internetowa");
 
 if ($mysqli->connect_errno) {
 	echo '
-		<div class="alert alert-danger blad_polaczenia_baza_danych">
+		<div class="alert alert-danger blad-polaczenia-baza-danych">
 			<b><p>Nie udało się nawiązać połączenia z bazą danych</p></b>
 		</div>
 	';
@@ -26,7 +26,7 @@ if ($result->num_rows == 1) {
 	header('Location: index.php?page=nauka');
 }
 else {
-	header('Location: index.php?page=logowanie&zle_dane');
+	header('Location: index.php?page=logowanie&zle-dane');
 }
 
 $mysqli->close();

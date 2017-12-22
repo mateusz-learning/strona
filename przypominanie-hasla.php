@@ -17,10 +17,10 @@
         </div>
         <div class="modal-footer informacja-dla-uzytkownika">
             <?php
-                if (isset($_GET['niepoprawny_email'])) {
+                if (isset($_GET['niepoprawny-email'])) {
                     echo "<p>Proszę podać poprawny email.</p>";
                 }
-                else if (isset($_GET['email_nie_znaleziono'])) {
+                else if (isset($_GET['email-nie-znaleziono'])) {
                     echo "<p>Podany adres email nie istnieje.</p>";
                 }
             ?>

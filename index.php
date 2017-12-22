@@ -92,19 +92,28 @@ session_start();
         else if ($_GET['page'] == 'profil') {
             require('profil.php');
         }
+        else if ($_GET['page'] == 'zmien-haslo') {
+            require('zmiana-hasla.php');
+        }
+        else if ($_GET['page'] == 'usun-konto') {
+            require('usuwanie-konta.php');
+        }
+        else if ($_GET['page'] == 'konto-usuniete') {
+            require('konto-usuniete.php');
+        }
         else if ($_GET['page'] == 'rejestracja-potwierdzenie') {
             require ('rejestracja-tworzenie-hasla.php');
         }
-        else if ($_GET['page'] == 'rejestracja_wyslano_email') {
+        else if ($_GET['page'] == 'rejestracja-wyslano-email') {
             require('rejestracja-wyslano-email.php');
         }
-        else if ($_GET['page'] == 'wyslano_email_przypomnienie') {
+        else if ($_GET['page'] == 'wyslano-email-przypomnienie') {
             require('email-przypomnienie-hasla.php');
         }
-        else if ($_GET['page'] == 'rejestracja_nie_udala_sie') {
+        else if ($_GET['page'] == 'rejestracja-nie-udala-sie') {
             require('rejestracja-nie-udala-sie.php');
         }
-        else if ($_GET['page'] == 'rejestracja_udala_sie') {
+        else if ($_GET['page'] == 'rejestracja-udala-sie') {
             require('rejestracja-udala-sie.php');
         }
     ?>
