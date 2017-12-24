@@ -22,7 +22,10 @@
         </div>
         <div class="modal-footer informacja-dla-uzytkownika">
             <?php
-                if (isset($_GET['haslo-za-krotkie'])) {
+                if (isset($_GET['zle-stare-haslo'])) {
+                    echo "<p>Podane stare hasło jest nieprawidłowe.</p>";
+                }
+                else if (isset($_GET['haslo-za-krotkie'])) {
                     echo "<p>Minimalna dozwolona długość hasła to 7 znaków.</p>";
                 }
                 else if (isset($_GET['haslo-za-dlugie'])) {

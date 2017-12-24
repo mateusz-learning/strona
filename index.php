@@ -38,7 +38,8 @@ session_start();
                         if (isset($_SESSION['user'])) {
                             echo '
                                 <li><a href="index.php?page=nauka">Nauka</a></li>
-                                <li><a href="index.php?page=stworz-fiszki">Stwórz fiszki</a></li>';
+                                <li><a href="index.php?page=tworzenie-fiszek">Stwórz fiszki</a></li>
+                                <li><a href="index.php?page=kursy">Kursy</a></li>';
                         }
                     ?>
                 </ul>
@@ -86,17 +87,39 @@ session_start();
         else if ($_GET['page'] == 'nauka') {
             require('nauka.php');
         }
-        else if ($_GET['page'] == 'stworz-fiszki') {
-            require('stworz-fiszki.php');
+        else if ($_GET['page'] == 'tworzenie-fiszek') {
+            require('tworzenie-fiszek.php');
+        }
+        else if ($_GET['page'] == 'kursy') {
+            require('kursy.php');
         }
         else if ($_GET['page'] == 'profil') {
-            require('profil.php');
+            if (isset($_SESSION['user'])) {
+                require('profil.php');
+            }
+            else {
+                header('Location: index.php?page=logowanie');
+            }
         }
         else if ($_GET['page'] == 'zmien-haslo') {
-            require('zmiana-hasla.php');
+            if (isset($_SESSION['user'])) {
+                require('zmiana-hasla.php');
+            }
+            else {
+                header('Location: index.php?page=logowanie');
+            }
         }
+        else if ($_GET['page'] == 'haslo-zostalo-zmienione') {
+            require('haslo-zostalo-zmienione.php');
+        }
+
         else if ($_GET['page'] == 'usun-konto') {
-            require('usuwanie-konta.php');
+            if (isset($_SESSION['user'])) {
+                require('usuwanie-konta.php');
+            }
+            else {
+                header('Location: index.php?page=logowanie');
+            }
         }
         else if ($_GET['page'] == 'konto-usuniete') {
             require('konto-usuniete.php');
