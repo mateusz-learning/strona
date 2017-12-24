@@ -4,7 +4,7 @@
 	}
 ?>
 
-<div class="container">
+<div id="kursy" class="container">
 	<h1>Gotowe zestawy słownictwa:</h1>
 	<table class="table table-hover">
 		<thead>
@@ -15,66 +15,20 @@
 			</tr>
 		</thead>
 		<tbody>
+<?php
+	$mysqli = new mysqli("127.0.0.1", "mateusz", "mateusz", "strona_internetowa");
+
+	$result = $mysqli->query("SELECT * FROM kategorie");
+
+	while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+		echo '
 			<tr>
-				<td>Kolory</td>
-				<td>15</td>
-				<td><button type="button" class="btn btn-primary btn-sm">dodaj słowa <span class="caret"></span></button></td>
-			</tr>
-			<tr>
-				<td>Zwierzęta</td>
-				<td>10</td>
-				<td><button type="button" class="btn btn-primary btn-sm">dodaj słowa <span class="caret"></span></button></td>
-			</tr>
-			<tr>
-				<td>Owoce i warzywa</td>
-				<td>21</td>
-				<td><button type="button" class="btn btn-primary btn-sm">dodaj słowa <span class="caret"></span></button></td>
-			</tr>
+				<td>' . $row["category"] . '</td>
+				<td>' . $row["number_of_flashcards"] . '</td>
+				<td><a href="index.php?page=kursy-dodawanie&kurs-id=' . $row["ID"] . '"><button type="button" id="kurs-przycisk-' . $row["ID"] . '" class="btn btn-primary btn-sm">dodaj kurs</button></a></td>
+			</tr>';
+	}
+?>
 		</tbody>
 	</table>
 </div>
-
-<div class="container">
-	<h1>Zwierzęta</h1>
-	<p>Proszę wybrać fiszki, które chcesz dodać.</p>
-	<table id="kurs-slowa" class="table">
-		<thead>
-			<tr>
-				<th>Polskie znaczenie</th>
-				<th>Angielskie znaczenie</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>pies</td>
-				<td>dog</td>
-			</tr>
-			<tr>
-				<td>kot</td>
-				<td>cat</td>
-			</tr>
-			<tr>
-				<td>małpa</td>
-				<td>monkey</td>
-			</tr>
-			<tr>
-				<td>pszczoła</td>
-				<td>bee</td>
-			</tr>
-			<tr>
-				<td>żółw</td>
-				<td>turtle</td>
-			</tr>
-			<tr>
-				<td>wąż</td>
-				<td>snake</td>
-			</tr>
-			<tr>
-				<td>jeż</td>
-				<td>hedgehog</td>
-			</tr>
-
-		</tbody>
-	</table>
-</div>
-

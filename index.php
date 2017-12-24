@@ -93,6 +93,9 @@ session_start();
         else if ($_GET['page'] == 'kursy') {
             require('kursy.php');
         }
+        else if ($_GET['page'] == 'kursy-dodawanie') {
+            require('kursy-dodawanie.php');
+        }
         else if ($_GET['page'] == 'profil') {
             if (isset($_SESSION['user'])) {
                 require('profil.php');

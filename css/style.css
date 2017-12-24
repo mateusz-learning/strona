@@ -1,3 +1,7 @@
+body {
+	margin-bottom: 27px;
+}
+
 .jumbotron {
     margin-bottom: 0;
 }
@@ -56,4 +60,8 @@
 
 #wiem_nie_wiem button {
     width: 30%;
+}
+
+#przycisk-dodaj-slowa {
+
 }

@@ -24,12 +24,12 @@ $(document).ready(function() {
         $("#wiem_nie_wiem").css("display", "block");
     });
     
-    var licznik = 1;
+    var licznik = 0;
 
     $("#dodaj-slowo").click(function() {
         licznik++;
 
-        if (licznik > 10) {
+        if (licznik > 9) {
             $("#za-duzo").css("display", "block");
             return;
         }
