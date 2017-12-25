@@ -17,6 +17,7 @@
 		<tbody>
 <?php
 	$mysqli = new mysqli("127.0.0.1", "mateusz", "mateusz", "strona_internetowa");
+	$mysqli->set_charset("utf8");
 
 	$result = $mysqli->query("SELECT * FROM kategorie");
 

@@ -7,13 +7,11 @@
 <?php
 
 	$mysqli = new mysqli("127.0.0.1", "mateusz", "mateusz", "strona_internetowa");
+	$mysqli->set_charset("utf8");
 
-	$result = $mysqli->query("SELECT * FROM fiszki WHERE category = 'Zwierzeta'");
+	$category_name = $mysqli->query("SELECT * FROM kategorie WHERE id = '". $_GET['kurs-id'] . "'")->fetch_array(MYSQLI_ASSOC)['category'];
 
-	while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-		echo $row["pol"];
-	}
-
+	$result = $mysqli->query("SELECT * FROM fiszki WHERE category = '" . $category_name . "'");
 
 	echo '
 		<div id="kursy-slowa" class="container">
@@ -27,38 +25,20 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>pies</td>
-						<td>dog</td>
-					</tr>
-					<tr>
-						<td>kot</td>
-						<td>cat</td>
-					</tr>
-					<tr>
-						<td>małpa</td>
-						<td>monkey</td>
-					</tr>
-					<tr>
-						<td>pszczoła</td>
-						<td>bee</td>
-					</tr>
-					<tr>
-						<td>żółw</td>
-						<td>turtle</td>
-					</tr>
-					<tr>
-						<td>wąż</td>
-						<td>snake</td>
-					</tr>
-					<tr>
-						<td>jeż</td>
-						<td>hedgehog</td>
-					</tr>
-				</tbody>
+	';
+
+	while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+		echo '
+			<tr class="success">
+				<td>' . $row['pol'] . '</td>
+				<td>' . $row['eng'] . '</td>
+			</tr>
+		';
+	}
+	echo '
+		</tbody>
 			</table>
 			<button id="przycisk-dodaj-slowa" type="button" class="btn btn-primary btn-md center">dodaj zaznaczone słowa</button>
 		</div>
 	';
-
 ?>
