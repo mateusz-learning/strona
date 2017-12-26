@@ -36,7 +36,7 @@
 		';
 	}
 	echo '
-		</tbody>
+				</tbody>
 			</table>
 			<button id="przycisk-dodaj-slowa" type="button" class="btn btn-primary btn-md center">dodaj zaznaczone słowa</button>
 		</div>

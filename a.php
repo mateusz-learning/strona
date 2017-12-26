@@ -1,3 +1,3 @@
 <?php
 
-echo "nauka";
+header('Location: index.php?page=asdjnadsdsk');
