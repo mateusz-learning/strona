@@ -38,12 +38,17 @@ $(document).ready(function() {
     });
 
     $("#kurs-slowa").on("click", "tbody tr", function () {
-        $(this).toggleClass("success");
-    });
+        id = $(this).attr("id").split("-").pop();
 
-    $("#przycisk-dodaj-slowa").click(function() {
-        $( ".success" ).each(function() {
-            //console.log($(this).children("td:nth-child(1)").html());
-        });
+        if ($(this).hasClass("success")) {
+            $(this).toggleClass("success");
+
+            $("[name=" + id + "]").attr("disabled", "disabled");
+        }
+        else {
+            $(this).toggleClass("success");
+
+            $("[name=" + id + "]").removeAttr("disabled");
+        }
     });
 });

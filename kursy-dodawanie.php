@@ -29,7 +29,7 @@
 
 	while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
 		echo '
-			<tr class="success">
+			<tr id="slowo-' . $row['ID'] . '" class="success">
 				<td>' . $row['pol'] . '</td>
 				<td>' . $row['eng'] . '</td>
 			</tr>
@@ -38,7 +38,25 @@
 	echo '
 				</tbody>
 			</table>
-			<button id="przycisk-dodaj-slowa" type="button" class="btn btn-primary btn-md center">dodaj zaznaczone słowa</button>
 		</div>
 	';
-?>
+
+
+	$result = $mysqli->query("SELECT * FROM fiszki WHERE category = '" . $category_name . "'");
+
+	echo '
+		<div class="container">
+			<form action="a.php" method="POST">
+	';
+
+while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+		echo '
+				<input type="hidden" name="' . $row['ID'] . '" value="">
+		';
+	}
+
+	echo '
+				<input id="przycisk-dodaj-slowa" type="submit" class="btn btn-primary btn-md center" value="dodaj zaznaczone słowa">
+			</form>
+		</div>
+	';

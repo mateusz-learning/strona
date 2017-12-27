@@ -1,3 +1,8 @@
 <?php
 
-header('Location: index.php?page=asdjnadsdsk');
+session_start();
+echo $_SESSION['user'] . "<br>";
+
+foreach ($_POST as $name => $val) {
+     echo $name . "<br>";
+}
