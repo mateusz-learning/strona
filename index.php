@@ -142,6 +142,9 @@ session_start();
         else if ($_GET['page'] == 'rejestracja-udala-sie') {
             require('rejestracja-udala-sie.php');
         }
+        else if ($_GET['page'] == 'fiszki-zostaly-dodane') {
+            require('fiszki-zostaly-dodane.php');
+        }
     ?>
 	<script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.js"></script>

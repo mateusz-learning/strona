@@ -34,7 +34,7 @@ $(document).ready(function() {
             return;
         }
 
-        $("#dodaj-slowo").before("<br><input type='text' class='form-control' id='pl-" + licznik + "' placeholder='Słowo w języku polskim'> <input type='text' class='form-control' id='eng-" + licznik + "' placeholder='Słowo w języku obcym'>&nbsp;");
+        $("#dodaj-slowo").before("<br><input class='form-control' type='text' name='pl-" + licznik + "' placeholder='Słowo w języku polskim'> <input class='form-control' type='text' name='eng-" + licznik + "' placeholder='Słowo w języku obcym'>&nbsp;");
     });
 
     $("#kurs-slowa").on("click", "tbody tr", function () {

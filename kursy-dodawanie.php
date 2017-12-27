@@ -46,7 +46,7 @@
 
 	echo '
 		<div class="container">
-			<form action="a.php" method="POST">
+			<form action="dodaj-fiszki-z-kursu.php" method="POST">
 	';
 
 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -56,7 +56,7 @@ while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
 	}
 
 	echo '
-				<input id="przycisk-dodaj-slowa" type="submit" class="btn btn-primary btn-md center" value="dodaj zaznaczone słowa">
+				<input id="przycisk-dodaj-slowa" class="btn btn-primary btn-md center" type="submit" value="dodaj zaznaczone słowa">
 			</form>
 		</div>
 	';

@@ -20,6 +20,7 @@ if ($result->num_rows == 1) {
 	$row = $result->fetch_array(MYSQLI_ASSOC);
 
 	session_start();
+	$_SESSION['user_id'] = $row['ID'];
 	$_SESSION['user'] = $row['username'];
 	$_SESSION['email'] = $row['email'];
 

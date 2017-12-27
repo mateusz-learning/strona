@@ -5,7 +5,7 @@
 ?>
 
 <div class="container">
-    <button type="button" class="btn" data-toggle="modal" data-target="#popup">ok</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#popup">Nauka</button>
 </div>
 
 <div class="modal fade" id="popup" role="dialog">
