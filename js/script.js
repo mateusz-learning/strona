@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+    var licznik_sprawdz_slowo = 0;
+
     $("#sprawdz_slowo").click(function() {
         if (($("#slowo_polskie").css("display")) != "none") {
             zamien_slowo("polskie");

@@ -29,7 +29,7 @@ if ($result->num_rows == 1) {
 	
 	$mysqli->query("INSERT INTO `uzytkownicy` (`username`, `password`, `email`)
 		VALUES ('" . $login . "', '" . $haslo . "', '" . $email . "');");
-	$mysqli->query("DELETE FROM `uzytkownicy_niepotwierdzeni` WHERE `username` = '". $login . "'");
+	//$mysqli->query("DELETE FROM `uzytkownicy_niepotwierdzeni` WHERE `username` = '". $login . "'");
 
 	header("Location: index.php?page=rejestracja-udala-sie");
 }
