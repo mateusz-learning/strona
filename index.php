@@ -48,7 +48,7 @@ session_start();
                         if (isset($_SESSION['user'])) {
                             echo '
                                 <li><a href="?page=profil"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
-                                <li><a href="?page=wyloguj"><span class="glyphicon glyphicon-log-in"></span> Wyloguj się</a></li>
+                                <li><a href="?page=wyloguj"><span class="glyphicon glyphicon-log-out"></span> Wyloguj się</a></li>
                             ';
                         }
                         else {
