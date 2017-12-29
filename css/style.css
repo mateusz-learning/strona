@@ -34,30 +34,34 @@ body {
 	display: none;
 }
 
-.przyklad {
-    font-size: 22px;
-}
-
-#slowo_polskie {
+#fiszka-pokaz-odpowiedz {
     display: block;
 }
 
-#slowo_obce {
-    display: none;
-}
-
-#pokaz_odpowiedz {
-    display: block;
-}
-
-#pokaz_odpowiedz button {
+#fiszka-pokaz-odpowiedz button {
     width: 60%;
 }
 
-#wiem_nie_wiem {
+#przycisk-wyslij-fiszki {
+	width: 40%;
+}
+
+#fiszka-wiem-nie-wiem {
     display: none;
 }
 
-#wiem_nie_wiem button {
+#fiszka-wiem-nie-wiem button {
     width: 30%;
+}
+
+#slowo {
+    font-size: 22px;
+}
+
+#komunikat-koniec-rundy {
+	font-size: 22px;
+}
+
+#przycisk-wyslij-fiszki {
+	display: none;
 }

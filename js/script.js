@@ -1,32 +1,56 @@
 $(document).ready(function() {
 
     var licznik_sprawdz_slowo = 0;
+    var licznik_fiszka = 0;
+    var obecne_slowo = "pl";
+    var dobre_odpowiedzi = 0;
+    var zle_odpowiedzi = 0;
 
-    $("#sprawdz_slowo").click(function() {
-        if (($("#slowo_polskie").css("display")) != "none") {
-            zamien_slowo("polskie");
+    $("#slowo p").text($("#form-wyslij-fiszki input:eq(0)").val());
+
+    $("#odwroc-fiszke").click(function() {
+        if (obecne_slowo == "pl") {
+            $("#fiszka-pokaz-odpowiedz").css("display", "none");
+            $("#fiszka-wiem-nie-wiem").css("display", "block");
+
+            obecne_slowo = "eng";
         }
         else {
-            zamien_slowo("obce");
+            $("#fiszka-pokaz-odpowiedz").css("display", "block");
+            $("#fiszka-wiem-nie-wiem").css("display", "none");
+
+            obecne_slowo = "pl";
+            licznik_sprawdz_slowo++;
         }
+
+        if (licznik_sprawdz_slowo > 4) {
+            $("#komunikat-koniec-rundy").append("<p>Liczba dobrych odpowiedzi: " + dobre_odpowiedzi + "</p><p>Liczba zlych odpowiedzi: " + zle_odpowiedzi + "</p>");
+            $("#slowo").css("display", "none");
+            $("#odwroc-fiszke").css("display", "none");
+            $("#przycisk-wyslij-fiszki").css("display", "inline");
+        }
+
+        licznik_fiszka++;
+        $("#slowo p").text($("#form-wyslij-fiszki input:eq(" + licznik_fiszka + ")").val());
     });
-    
-    function zamien_slowo($obecne_slowo) {
-        if ($obecne_slowo == "polskie") {
-            $("#slowo_polskie").css("display", "none");
-            $("#slowo_obce").css("display", "block");
-        }
-        else {
-            $("#slowo_polskie").css("display", "block");
-            $("#slowo_obce").css("display", "none");
-        }
-    }
-    
-    $("#sprawdz_slowo").click(function() {
-        $("#pokaz_odpowiedz").css("display", "none");
-        $("#wiem_nie_wiem").css("display", "block");
+
+    pasek_czerwony = 0;
+    pasek_zielony = 0;
+
+    $("#nie-wiem-przycisk").click(function() {
+        pasek_czerwony += 20;
+        $("#pasek-zla-odpowiedz").css("width", pasek_czerwony + "%");
+        $("#slowo p").text($("#form-wyslij-fiszki input:eq(" + licznik_fiszka + ")").attr("name", ""));
+        zle_odpowiedzi++;
     });
-    
+
+    $("#wiem-przycisk").click(function() {
+        pasek_zielony += 20;
+        $("#pasek-dobra-odpowiedz").css("width", pasek_zielony + "%");
+        dobre_odpowiedzi++;
+    });
+
+
     var licznik = 0;
 
     $("#dodaj-slowo").click(function() {

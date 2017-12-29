@@ -3,7 +3,6 @@
 		header('Location: index.php?page=logowanie');
 	}
 
-
 $mysqli = new mysqli("127.0.0.1", "mateusz", "mateusz", "strona_internetowa");
 $mysqli->set_charset("utf8");
 
@@ -30,24 +29,22 @@ echo '
 echo '
 <div class="modal-dialog">
     <div class="modal-content">
-        <div class="modal-header">
-            
-        </div>
         <div class="modal-body">
-            <div id="slowo_polskie" class="text-center">
-                <p class="przyklad">Słowo w języku polskim</p>
+            <div id ="slowo" class="text-center">
+                <p></p>
             </div>
-            <div id="slowo_obce" class="text-center">
-                <p class="przyklad">Słowo w języku angielskim</p>
+            <div id ="komunikat-koniec-rundy" class="text-center">
             </div>
-            <div id="pokaz_odpowiedz" class="text-center">
-                <button id="sprawdz_slowo" type="button" class="btn btn-primary">Pokaż odpowiedź</button>
+            <div id="odwroc-fiszke">
+                <div id="fiszka-pokaz-odpowiedz" class="text-center">
+                    <button id="sprawdz-slowo" type="button" class="btn btn-primary">Pokaż odpowiedź</button>
+                </div>
+                <div id="fiszka-wiem-nie-wiem" class="text-center">
+                    <button id="wiem-przycisk" type="button" class="btn btn-success">Wiem</button>
+                    <button id="nie-wiem-przycisk" type="button" class="btn btn-danger">Nie wiem</button>
+                </div>
             </div>
-            <div id="wiem_nie_wiem" class="text-center">
-                <button id="wiem_przycisk" type="button" class="btn btn-primary">Wiem</button>
-                <button id="nie_wiem_przycisk" type="button" class="btn btn-primary">Nie wiem</button>
-            </div>
-            <form class="text-center" action="" method="POST">
+            <form id="form-wyslij-fiszki" class="text-center" action="a.php" method="POST">
             ';
                 while ($row = $result->fetch_assoc()) {
                     $flashcard_pl = $mysqli->query("SELECT * FROM fiszki WHERE ID = '" . $row['flashcard_id'] . "'")
@@ -56,55 +53,21 @@ echo '
                         ->fetch_assoc()['eng'];
 
                     echo '
-                        <input type="text" name="pl-' . $row['flashcard_id'] . '" value="' . $flashcard_pl . '">
-                        <input type="text" name="eng-' . $row['flashcard_id'] . '" value="' . $flashcard_eng . '"><br>';
+                        <input type="hidden" name="" value="' . $flashcard_pl . '">
+                        <input type="hidden" name="' . $row['flashcard_id'] . '" value="' . $flashcard_eng . '">';
                 }
             echo '
-                <input id="przycisk-dodaj-slowa" class="btn btn-primary btn-md center" type="submit" value="dodaj zaznaczone słowa">
+                <input id="przycisk-wyslij-fiszki" class="btn btn-primary btn-md center" type="submit" value="Dalej">
             </form>
         </div>
         <div class="modal-footer">
-            
+            <div class="progress">
+                <div id="pasek-dobra-odpowiedz" class="progress-bar progress-bar-success" role="progressbar"" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                </div>
+                <div id="pasek-zla-odpowiedz" class="progress-bar progress-bar-danger" role="progressbar"" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                </div>
+            </div> 
         </div>
     </div>
 </div>
 ';
-
-
-
-/*
-echo '
-<div class="container">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#popup">Nauka</button>
-</div>
-
-<div class="modal fade" id="popup" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <p>Nazwa kursu</p>
-            </div>
-            <div class="modal-body">
-                <div id="slowo_polskie" class="text-center">
-                    <p class="przyklad">Słowo w języku polskim</p>
-                </div>
-                <div id="slowo_obce" class="text-center">
-                    <p class="przyklad">Słowo w języku angielskim</p>
-                </div>
-                <div id="pokaz_odpowiedz" class="text-center">
-                    <button id="sprawdz_slowo" type="button" class="btn btn-primary">Pokaż odpowiedź</button>
-                </div>
-                <div id="wiem_nie_wiem" class="text-center">
-                    <button id="wiem_przycisk" type="button" class="btn btn-primary">Pokaż odpowiedź</button>
-                    <button id="nie_wiem_przycisk" type="button" class="btn btn-primary">Pokaż odpowiedź</button>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <p>text</p>
-            </div>
-        </div>
-    </div>
-</div>
-';
-*/
