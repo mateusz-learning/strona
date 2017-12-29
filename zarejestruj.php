@@ -7,8 +7,8 @@ if ($mysqli->connect_errno) {
 	die();
 }
 
-$login = $_POST['login'];
-$email = $_POST['email'];
+$login = htmlentities($_POST['login']);
+$email = htmlentities($_POST['email']);
 
 if (strlen($login) < 3) {
 	header("Location: index.php?page=rejestracja&login-za-krotki");

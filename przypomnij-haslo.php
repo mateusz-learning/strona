@@ -1,6 +1,6 @@
 <?php
 
-$email = $_POST['email'];
+$email = htmlentities($_POST['email']);
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header("Location: index.php?page=przypomnij-haslo&niepoprawny-email");
@@ -22,9 +22,9 @@ if ($result->num_rows == 0) {
 	die();
 }
 else {
-	$to = $_POST['email'];
+	$to = htmlentities($_POST['email']);
 	$subject = "Przypominanie hasła";
-	$messages= "Witaj " . $_POST['login'] . ".\n\n" .
+	$messages= "Witaj " . htmlentities($_POST['login']) . ".\n\n" .
 			"Twoje hasło: " . $hasło;
 }
 

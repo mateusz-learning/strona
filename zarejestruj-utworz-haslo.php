@@ -14,7 +14,7 @@ $result = $mysqli->query("SELECT * FROM uzytkownicy_niepotwierdzeni WHERE
 	username = '" . $login . "' AND verification_code = '" . $kod . "'");
 
 if ($result->num_rows == 1) {
-	$haslo = $_POST['password'];
+	$haslo = htmlentities($_POST['password']);
 	$email = $result->fetch_array(MYSQLI_ASSOC)["email"];
 
 	if (strlen($haslo) < 7) {

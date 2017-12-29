@@ -7,9 +7,9 @@ if ($mysqli->connect_errno) {
 	die();
 }
 
-$old_password_entered = $_POST['old-password'];
-$new_password = $_POST['new-password'];
-$new_password_confirm = $_POST['new-password-confirm'];
+$old_password_entered = htmlentities($_POST['old-password']);
+$new_password = htmlentities($_POST['new-password']);
+$new_password_confirm = htmlentities($_POST['new-password-confirm']);
 
 session_start();
 $login = $_SESSION['user'];

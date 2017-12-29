@@ -34,7 +34,6 @@ echo '
 	        <tbody>
 ';
 			$recently_added_flashcards = $mysqli->query("SELECT * FROM fiszki ORDER BY creation_date DESC LIMIT 10");
-			$a = $mysqli->query("INSERT INTO `kategorie` (`ID`, `category`, `number_of_flashcards`) VALUES (NULL, 'ab', '51')");
 			
 			while ($row = $recently_added_flashcards->fetch_array(MYSQLI_ASSOC)) {
 				echo '

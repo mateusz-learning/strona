@@ -16,9 +16,9 @@ $user_id = $_SESSION['user_id'];
 $author = $_SESSION['user'];
 
 for ($i=0; $i<10; $i++) {
-	if (isset($_POST['pl-' . $i])) {
-		$polish_meaning = $_POST['pl-' . $i];
-		$english_meaning = $_POST['eng-' . $i];
+	if (htmlentities(isset($_POST['pl-' . $i]))) {
+		$polish_meaning = htmlentities($_POST['pl-' . $i]);
+		$english_meaning = htmlentities($_POST['eng-' . $i]);
 
 		if (strlen($polish_meaning) > 0 && strlen($english_meaning)) {
 			$mysqli->query("INSERT INTO fiszki (pol, eng, author)
