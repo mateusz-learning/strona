@@ -5,6 +5,7 @@ $(document).ready(function() {
     var obecne_slowo = "pl";
     var dobre_odpowiedzi = 0;
     var zle_odpowiedzi = 0;
+    var liczba_fiszek = $("#liczba-fiszek").text();
 
     $("#slowo p").text($("#form-wyslij-fiszki input:eq(0)").val());
 
@@ -23,7 +24,7 @@ $(document).ready(function() {
             licznik_sprawdz_slowo++;
         }
 
-        if (licznik_sprawdz_slowo > 4) {
+        if (licznik_sprawdz_slowo > liczba_fiszek - 1) {
             $("#komunikat-koniec-rundy").append("<p>Liczba dobrych odpowiedzi: " + dobre_odpowiedzi + "</p><p>Liczba zlych odpowiedzi: " + zle_odpowiedzi + "</p>");
             $("#slowo").css("display", "none");
             $("#odwroc-fiszke").css("display", "none");
@@ -37,19 +38,18 @@ $(document).ready(function() {
     pasek_czerwony = 0;
     pasek_zielony = 0;
 
-    $("#nie-wiem-przycisk").click(function() {
-        pasek_czerwony += 20;
-        $("#pasek-zla-odpowiedz").css("width", pasek_czerwony + "%");
-        $("#slowo p").text($("#form-wyslij-fiszki input:eq(" + licznik_fiszka + ")").attr("name", ""));
-        zle_odpowiedzi++;
-    });
-
     $("#wiem-przycisk").click(function() {
-        pasek_zielony += 20;
+        pasek_zielony += 100 / liczba_fiszek;
         $("#pasek-dobra-odpowiedz").css("width", pasek_zielony + "%");
         dobre_odpowiedzi++;
     });
 
+    $("#nie-wiem-przycisk").click(function() {
+        pasek_czerwony += 100 / liczba_fiszek;
+        $("#pasek-zla-odpowiedz").css("width", pasek_czerwony + "%");
+        $("#slowo p").text($("#form-wyslij-fiszki input:eq(" + licznik_fiszka + ")").attr("name", ""));
+        zle_odpowiedzi++;
+    });
 
     var licznik = 0;
 

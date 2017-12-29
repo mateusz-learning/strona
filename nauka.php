@@ -16,13 +16,17 @@ if ($mysqli->connect_errno) {
 
 $user_id = $_SESSION['user_id'];
 
-$result = $mysqli->query("SELECT * FROM uzytkownicy_fiszki WHERE user_id = 60 LIMIT 5");
-$flashcards_to_learn = $mysqli->query("SELECT * FROM uzytkownicy_fiszki WHERE user_id = " . $user_id)->num_rows;
+$result = $mysqli->query("SELECT * FROM uzytkownicy_fiszki
+    WHERE user_id = '". $user_id . "' AND next_revision < CURRENT_TIMESTAMP LIMIT 5");
+$flashcards_numer = $mysqli->query("SELECT * FROM uzytkownicy_fiszki
+    WHERE user_id = '" . $user_id . "' AND next_revision IS NOT NULL")->num_rows;
+$flashcards_to_learn = $result->num_rows;
 
 echo '
     <div class="container">
         <h2>Witaj ' . $_SESSION['user'] . '.</h2>
-        <p>Liczba fiszek w trakcie nauki: ' . $flashcards_to_learn . '.</p>
+        <p class="abc">Liczba fiszek w trakcie nauki: ' . $flashcards_numer . '.</p>
+        <p class="abc">Liczba fiszek do przejrzenia: ' . $flashcards_to_learn . '.</p>
     </div>
 ';
 
@@ -56,6 +60,9 @@ echo '
                         <input type="hidden" name="" value="' . $flashcard_pl . '">
                         <input type="hidden" name="' . $row['flashcard_id'] . '" value="' . $flashcard_eng . '">';
                 }
+                    echo '
+                        <p id="liczba-fiszek">' . $result->num_rows . '</p>
+                    ';
             echo '
                 <input id="przycisk-wyslij-fiszki" class="btn btn-primary btn-md center" type="submit" value="Dalej">
             </form>

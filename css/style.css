@@ -34,6 +34,11 @@ body {
 	display: none;
 }
 
+.abc {
+	font-size: 18px;
+	line-height: 100%;
+}
+
 #fiszka-pokaz-odpowiedz {
     display: block;
 }
@@ -64,4 +69,8 @@ body {
 
 #przycisk-wyslij-fiszki {
 	display: none;
+}
+
+#liczba-fiszek {
+
 }
