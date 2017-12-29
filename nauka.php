@@ -25,13 +25,13 @@ $flashcards_to_learn = $result->num_rows;
 echo '
     <div class="container">
         <h2>Witaj ' . $_SESSION['user'] . '.</h2>
-        <p class="abc">Liczba fiszek w trakcie nauki: ' . $flashcards_numer . '.</p>
-        <p class="abc">Liczba fiszek do przejrzenia: ' . $flashcards_to_learn . '.</p>
+        <p class="zdanie">Liczba fiszek w trakcie nauki: ' . $flashcards_numer . '.</p>
+        <p class="zdanie">Liczba fiszek do przejrzenia: ' . $flashcards_to_learn . '.</p>
     </div>
 ';
 
 echo '
-<div class="modal-dialog">
+<div id="nauka" class="modal-dialog">
     <div class="modal-content">
         <div class="modal-body">
             <div id ="slowo" class="text-center">
@@ -48,7 +48,7 @@ echo '
                     <button id="nie-wiem-przycisk" type="button" class="btn btn-danger">Nie wiem</button>
                 </div>
             </div>
-            <form id="form-wyslij-fiszki" class="text-center" action="a.php" method="POST">
+            <form id="form-wyslij-fiszki" class="text-center" action="wyznacz-powtorki.php" method="POST">
             ';
                 while ($row = $result->fetch_assoc()) {
                     $flashcard_pl = $mysqli->query("SELECT * FROM fiszki WHERE ID = '" . $row['flashcard_id'] . "'")

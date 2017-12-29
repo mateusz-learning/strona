@@ -9,6 +9,10 @@ $(document).ready(function() {
 
     $("#slowo p").text($("#form-wyslij-fiszki input:eq(0)").val());
 
+    if (liczba_fiszek != 0) {
+        $("#nauka").css("display", "block");
+    }
+
     $("#odwroc-fiszke").click(function() {
         if (obecne_slowo == "pl") {
             $("#fiszka-pokaz-odpowiedz").css("display", "none");

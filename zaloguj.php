@@ -10,8 +10,8 @@ if ($mysqli->connect_errno) {
 	';
 }
 
-$login = $_POST['login'];
-$password = $_POST['password'];
+$login = htmlentities($_POST['login']);
+$password = htmlentities($_POST['password']);
 
 $result = $mysqli->query("SELECT * FROM uzytkownicy 
 	WHERE username = '". $login . "' AND password = '" . $password . "'");

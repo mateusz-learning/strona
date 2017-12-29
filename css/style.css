@@ -2,6 +2,10 @@ body {
 	margin-bottom: 27px;
 }
 
+#ostatnio-dodane thead {
+	font-weight: bold;
+}
+
 .jumbotron {
     margin-bottom: 0;
 }
@@ -34,9 +38,13 @@ body {
 	display: none;
 }
 
-.abc {
+.zdanie {
 	font-size: 18px;
 	line-height: 100%;
+}
+
+#nauka {
+	display: none;
 }
 
 #fiszka-pokaz-odpowiedz {
@@ -72,5 +80,5 @@ body {
 }
 
 #liczba-fiszek {
-
+	display: none;
 }
